@@ -11,12 +11,16 @@ pipeline {
         }
         stage ('Build') {
             steps {
-                sh 'npm install'
+                step{
+                     sh 'npm install'
+                }
+                step {
+                     sh 'npm install mocha'
+                }
             }
         }
         stage ('Test') {
             steps {
-                sh 'npm install mocha',
                 sh 'npm test'
             }
         }
