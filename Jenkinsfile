@@ -11,17 +11,15 @@ pipeline {
         }
         stage ('Build') {
             steps {
-                step{
-                     sh 'npm install'
-                }
-                step {
-                     sh 'npm install mocha'
-                }
+                sh 'npm install'
             }
         }
         stage ('Test') {
             steps {
-                sh 'npm test'
+                sh '''
+                    npm install mocha
+                    npm test
+                '''
             }
         }
         stage('Deploy to Heroku') {
