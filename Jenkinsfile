@@ -26,7 +26,8 @@ pipeline {
                 }
             }
         }
-        post {
+    }
+    post {
             success {
                 slackSend color: "good", message: "Success build for ${BUILD_ID} \
                 Live link : https://gallery--1.herokuapp.com/ \
@@ -36,5 +37,4 @@ pipeline {
                 slackSend color: "danger", message: "Build for ${BUILD_ID} failed"
             }
         }
-    }
 }
