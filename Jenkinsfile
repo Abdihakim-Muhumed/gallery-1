@@ -36,12 +36,12 @@ pipeline {
                 git 'https://github.com/Abdihakim-Muhumed/gallery-1.git'   
             }
         }
-        
-        stage ('Test') {
+        stage ('Build') {
             steps {
-                sh 'npm test'
+                sh 'npm install'
             }
         }
+        
         stage('Deploy to Heroku') {
             steps{
                 withCredentials([usernameColonPassword(credentialsId: 'heroku', variable: 'HEROKU_CREDENTIALS')]){
