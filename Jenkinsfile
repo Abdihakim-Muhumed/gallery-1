@@ -36,11 +36,7 @@ pipeline {
                 git 'https://github.com/Abdihakim-Muhumed/gallery-1.git'   
             }
         }
-        stage ('Build') {
-            steps {
-                sh 'npm install'
-            }
-        }
+        
         stage ('Test') {
             steps {
                 sh 'npm test'
